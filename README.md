@@ -39,8 +39,7 @@
 
 ### 基本使用（使用默认配置）
 ```bash
-docker run -p 3456:3456 ghcr.io/forkdo/claude-code-router
-```
+ docker run -p 3456:3456 ghcr.io/tinyzen/claude-code-router```
 
 ### 使用自定义配置文件
 ```bash
@@ -48,8 +47,7 @@ docker run -p 3456:3456 ghcr.io/forkdo/claude-code-router
 mkdir -p ./config
 
 # 复制并编辑配置文件
-docker run --rm ghcr.io/forkdo/claude-code-router cat /root/.claude-code-router/config.json > ./config/config.json
-
+ docker run --rm ghcr.io/tinyzen/claude-code-router cat /root/.claude-code-router/config.json > ./config/config.json
 # 编辑配置文件
 vim ./config/config.json
 
@@ -57,7 +55,7 @@ vim ./config/config.json
 docker run \
   -p 3456:3456 \
   -v ./config:/root/.claude-code-router \
-  ghcr.io/forkdo/claude-code-router
+ghcr.io/tinyzen/claude-code-router
 ```
 
 ### 仅本地访问配置
@@ -113,9 +111,8 @@ curl -H "x-api-key: your-secret-key" http://localhost:3456/api/endpoint
 
 使用Docker卷来持久化配置数据：
 ```bash
-docker run -v claude-config:/root/.claude-code-router -p 3456:3456 ghcr.io/forkdo/claude-code-router
-```
+ docker run -v claude-config:/root/.claude-code-router -p 3456:3456 ghcr.io/tinyzen/claude-code-router```
 
 或使用主机目录：
 ```bash
-docker run -v /your/local/path:/root/.claude-code-router -p 3456:3456 ghcr.io/forkdo/claude-code-router
+ docker run -v /your/local/path:/root/.claude-code-router -p 3456:3456 ghcr.io/tinyzen/claude-code-router

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   claude-code-router:
-    image: ghcr.io/forkdo/claude-code-router:latest
+    image: ghcr.io/tinyzen/claude-code-router:latest
     container_name: claude-code-router
     restart: unless-stopped
     
