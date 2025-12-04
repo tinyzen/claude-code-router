@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  claude-code-router:
+    image: ghcr.io/forkdo/claude-code-router:latest
+    container_name: claude-code-router
+    restart: unless-stopped
+    
+    # 端口映射（根据config.json中的PORT配置）
+    ports:
+      - "3456:3456"
+    
+    # 数据持久化（包含config.json配置文件）
+    volumes:
+      - claude-config:/root/.claude-code-router
+    
+    # 健康检查
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3456/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  claude-config:
+    driver: local
